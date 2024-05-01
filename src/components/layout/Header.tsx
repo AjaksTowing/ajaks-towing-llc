@@ -1,6 +1,13 @@
 import { createClient } from "@/prismicio";
+import dynamic from "next/dynamic";
 import { PageDocument } from "../../../prismicio-types";
-import HeaderNavigation from "../HeaderNavigation";
+
+const HeaderNavigation = dynamic(
+  () => import("@/components/HeaderNavigation"),
+  {
+    ssr: false,
+  },
+);
 
 export default async function Header() {
   const client = createClient();
