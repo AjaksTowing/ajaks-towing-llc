@@ -1,10 +1,9 @@
-import { Metadata } from "next";
-
 import * as prismic from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
+import { Metadata } from "next";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import { SliceZone } from "@prismicio/react";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();

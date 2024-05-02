@@ -1031,6 +1031,86 @@ export type ContentGridSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *FaqSection → Primary*
+ */
+export interface FaqSectionSliceDefaultPrimary {
+  /**
+   * Heading field in *FaqSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_section.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *FaqSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_section.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FaqSection → Items*
+ */
+export interface FaqSectionSliceDefaultItem {
+  /**
+   * Trigger field in *FaqSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_section.items[].trigger
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  trigger: prismic.KeyTextField;
+
+  /**
+   * Content field in *FaqSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq_section.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for FaqSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FaqSectionSliceDefaultPrimary>,
+  Simplify<FaqSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FaqSection*
+ */
+type FaqSectionSliceVariation = FaqSectionSliceDefault;
+
+/**
+ * FaqSection Shared Slice
+ *
+ * - **API ID**: `faq_section`
+ * - **Description**: FaqSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSectionSlice = prismic.SharedSlice<
+  "faq_section",
+  FaqSectionSliceVariation
+>;
+
+/**
  * Default variation for GetInTouchBlock Slice
  *
  * - **API ID**: `default`
@@ -2109,6 +2189,11 @@ declare module "@prismicio/client" {
       ContentGridSliceDefaultItem,
       ContentGridSliceVariation,
       ContentGridSliceDefault,
+      FaqSectionSlice,
+      FaqSectionSliceDefaultPrimary,
+      FaqSectionSliceDefaultItem,
+      FaqSectionSliceVariation,
+      FaqSectionSliceDefault,
       GetInTouchBlockSlice,
       GetInTouchBlockSliceVariation,
       GetInTouchBlockSliceDefault,

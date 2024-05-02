@@ -9,6 +9,7 @@ export const components = {
   body: dynamic(() => import("./Body")),
   call_to_action: dynamic(() => import("./CallToAction")),
   content_grid: dynamic(() => import("./ContentGrid")),
+  faq_section: dynamic(() => import("./FaqSection")),
   get_in_touch_block: dynamic(() => import("./GetInTouchBlock")),
   hero: dynamic(() => import("./Hero")),
   highlight: dynamic(() => import("./Highlight")),

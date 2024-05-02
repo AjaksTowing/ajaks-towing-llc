@@ -32,19 +32,25 @@ const Reviews = ({ slice }: ReviewsProps): JSX.Element => {
           <div className="grid-sizer" />
 
           {slice.items.map((item, idx) => (
-            <div className="grid-item w-full lg:w-[48%] xl:w-[32%]" key={idx}>
-              <figure className="flex flex-col items-center justify-center border-b border-gray-200 bg-gray-50 p-8 text-center md:p-12 lg:border-r">
-                <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
-                  <h3 className="text-lg font-semibold text-gray-900">
+            <div
+              className="grid-item w-full py-1 lg:w-[48%] xl:w-[32%]"
+              key={idx}
+            >
+              <figure className="flex max-w-[98%] flex-col items-center justify-center overflow-hidden border-b border-gray-200 bg-gray-50 p-8 text-center md:p-12 lg:border-r">
+                <blockquote className="mx-auto mb-8 max-w-[96%] text-gray-500">
+                  <h3 className="max-w-[96%] truncate text-wrap text-lg font-semibold text-gray-900">
                     {item.heading}
                   </h3>
-                  <p className="my-4">"{item.content}"</p>
+                  <p className="my-4">&ldquo;{item.content}&rdquo;</p>
                 </blockquote>
-                <figcaption className="flex items-center justify-center space-x-3">
-                  <PrismicImage field={item.author_image} />
-                  <div className="space-y-0.5 text-left font-medium">
-                    <div>{item.author_name}</div>
-                    <div className="text-sm font-light text-gray-500">
+                <figcaption className="flex max-w-[96%] items-center justify-center space-x-3">
+                  <PrismicImage
+                    className="size-12 rounded-full object-cover"
+                    field={item.author_image}
+                  />
+                  <div className=" space-y-0.5 overflow-hidden text-left font-medium">
+                    <div className="truncate">{item.author_name}</div>
+                    <div className="truncate text-sm font-light text-gray-500">
                       {item.author_tagline}
                     </div>
                   </div>
