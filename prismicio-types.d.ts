@@ -5,6 +5,8 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type BlogPostDocumentDataSlicesSlice =
+  | MapSlice
+  | ServicesPreviewSlice
   | CallToActionSlice
   | TestimonialsSlice
   | ContentGridSlice
@@ -272,6 +274,8 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ServicePageDocumentDataSlicesSlice =
+  | MapSlice
+  | ServicesPreviewSlice
   | CallToActionSlice
   | BlogGridSlice
   | HighlightSlice
@@ -1252,6 +1256,16 @@ export interface MapSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#geopoint
    */
   coordinates: prismic.GeoPointField;
+
+  /**
+   * Marker Label field in *Map → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: map.primary.marker_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  marker_label: prismic.KeyTextField;
 }
 
 /**
@@ -1351,6 +1365,16 @@ export interface ServicesPreviewSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   icon: prismic.ImageField<never>;
+
+  /**
+   * Background Image field in *ServicesPreview → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_preview.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
 
   /**
    * Heading field in *ServicesPreview → Primary*

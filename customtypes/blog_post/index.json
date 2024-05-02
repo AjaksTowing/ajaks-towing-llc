@@ -26,6 +26,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "map": {
+              "type": "SharedSlice"
+            },
+            "services_preview": {
+              "type": "SharedSlice"
+            },
             "call_to_action": {
               "type": "SharedSlice"
             },

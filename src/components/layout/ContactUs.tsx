@@ -5,10 +5,7 @@ import Bounded from "./Bounded";
 
 export default async function ContactUs() {
   return (
-    <div
-      className="relative mt-16 overflow-hidden text-white md:mt-32"
-      id="contact-us"
-    >
+    <div className="relative  overflow-hidden text-white" id="contact-us">
       <div>
         <Bounded className="z-20 mt-1 flex flex-col items-center justify-evenly gap-10 py-6 md:absolute md:bottom-0 md:left-0 md:right-0 md:top-0 md:mt-1 md:flex-row md:py-0 lg:gap-20">
           <div className="flex w-full flex-col gap-2 lg:justify-center lg:gap-4">

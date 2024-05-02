@@ -17,6 +17,13 @@
           "config": {
             "label": "Coordinates"
           }
+        },
+        "marker_label": {
+          "type": "Text",
+          "config": {
+            "label": "Marker Label",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

@@ -40,8 +40,12 @@ const ServicesPreview = ({ slice }: ServicesPreviewProps): JSX.Element => {
         </div>
 
         {slice.items.map((item, _) => (
-          <div key={_}>
-            {isFilled.image(item.icon) && <PrismicImage field={item.icon} />}
+          <div key={_} className="flex flex-col">
+            {isFilled.image(item.icon) && (
+              <div className="mx-8 size-11">
+                <PrismicImage field={item.icon} />
+              </div>
+            )}
 
             {isFilled.keyText(item.heading) && <h4>{item.heading}</h4>}
 
