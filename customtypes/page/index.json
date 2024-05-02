@@ -27,7 +27,19 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "services_preview": {
+            "why_choose_us": {
+              "type": "SharedSlice"
+            },
+            "who_we_are": {
+              "type": "SharedSlice"
+            },
+            "our_value": {
+              "type": "SharedSlice"
+            },
+            "our_team": {
+              "type": "SharedSlice"
+            },
+            "reviews": {
               "type": "SharedSlice"
             },
             "map": {

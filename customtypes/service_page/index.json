@@ -26,10 +26,22 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "map": {
+            "who_we_are": {
               "type": "SharedSlice"
             },
-            "services_preview": {
+            "why_choose_us": {
+              "type": "SharedSlice"
+            },
+            "our_team": {
+              "type": "SharedSlice"
+            },
+            "our_value": {
+              "type": "SharedSlice"
+            },
+            "reviews": {
+              "type": "SharedSlice"
+            },
+            "map": {
               "type": "SharedSlice"
             },
             "call_to_action": {

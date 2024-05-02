@@ -13,8 +13,12 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   highlight: dynamic(() => import("./Highlight")),
   map: dynamic(() => import("./Map")),
+  our_team: dynamic(() => import("./OurTeam")),
+  our_value: dynamic(() => import("./OurValue")),
   post: dynamic(() => import("./Post")),
-  services_preview: dynamic(() => import("./ServicesPreview")),
+  reviews: dynamic(() => import("./Reviews")),
   testimonials: dynamic(() => import("./Testimonials")),
   video_banner: dynamic(() => import("./VideoBanner")),
+  who_we_are: dynamic(() => import("./WhoWeAre")),
+  why_choose_us: dynamic(() => import("./WhyChooseUs")),
 };
