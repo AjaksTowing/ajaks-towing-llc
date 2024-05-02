@@ -5,7 +5,7 @@ import { PageDocument } from "../../../prismicio-types";
 const HeaderNavigation = dynamic(
   () => import("@/components/HeaderNavigation"),
   {
-    ssr: false,
+    ssr: true,
   },
 );
 
