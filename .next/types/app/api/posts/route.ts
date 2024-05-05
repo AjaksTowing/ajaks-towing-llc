@@ -1,4 +1,4 @@
-// File: /Users/baraich/repos/Upwork/towing-llc/src/app/api/posts/route.ts
+// File: D:\Fiverr\Orders\hammadsolomon\ajaks-towing-llc\src\app\api\posts\route.ts
 import * as entry from '../../../../../src/app/api/posts/route.js'
 import type { NextRequest } from 'next/server.js'
 

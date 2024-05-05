@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Content, asLink, asText } from "@prismicio/client";
 import { PrismicImage, SliceComponentProps } from "@prismicio/react";
 import Link from "next/link";
-
+// #DD841F, #0C0C0D, #FFFFFF, #111827
 /**
  * Props for `WhyChooseUs`.
  */
@@ -34,8 +34,8 @@ const WhyChooseUs = ({ slice }: WhyChooseUsProps): JSX.Element => {
         >
           <div className="rc-container flex flex-col gap-10 duration-300 xl:flex-row xl:items-center xl:justify-between">
             {/* CTA------------------------------------------------------------starts here */}
-            <div className="flex flex-col gap-5">
-              <h6 className="text-primary font-bold">WHY CHOOSE US</h6>
+            <div className="flex flex-1 flex-col gap-5">
+              <h6 className="font-bold text-[#DD841F]">WHY CHOOSE US</h6>
               <h2 className="text-5xl font-bold text-white">
                 {asText(slice.primary.heading)}
               </h2>
@@ -53,15 +53,15 @@ const WhyChooseUs = ({ slice }: WhyChooseUsProps): JSX.Element => {
               {slice.items.map((card, idx) => (
                 <div
                   key={idx}
-                  className="bg-card hover:bg-primary group flex w-full flex-col items-center gap-2 px-4 py-10 duration-300 xl:max-w-xs"
+                  className="group flex w-full flex-col items-center gap-2 bg-[#111827] px-4 py-10 duration-300 hover:bg-[#DD841F] xl:max-w-xs"
                 >
-                  <div className="bg-primary grid h-14 w-14 place-items-center overflow-hidden duration-300 group-hover:bg-white">
+                  <div className="grid h-14 w-14 place-items-center overflow-hidden bg-primary duration-300 group-hover:bg-white">
                     <PrismicImage
                       field={card.icon}
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h4 className="text-primary duration-300 group-hover:text-white">
+                  <h4 className="font-bold text-[#DD841F] duration-300 group-hover:text-white">
                     {asText(card.heading)}
                   </h4>
                   <p className="text-center text-white">

@@ -35,12 +35,12 @@ const OurTeam = ({ slice }: OurTeamProps): JSX.Element => {
           {/* Cards------------------------------------------------------------starts here */}
           <div className="flex flex-col gap-5">
             {slice.items.map((item, idx) => (
-              <div key={idx} className="bg-card relative ml-7 p-5">
-                <div className="bg-primary absolute -left-7 top-1/2 h-14 w-14 -translate-y-1/2">
+              <div key={idx} className="bg-[#111827] relative ml-7 p-5">
+                <div className="bg-[#DD841F] absolute -left-7 top-1/2 h-14 w-14 -translate-y-1/2">
                   {item.icon.url && <img src={item.icon.url} />}
                 </div>
                 <div className="ml-7">
-                  <h6 className="text-primary text-md font-bold">
+                  <h6 className="text-[#DD841F] text-md font-bold">
                     {asText(item.heading)}
                   </h6>
                   <p className="text-white">{asText(item.content)}</p>
