@@ -21,11 +21,11 @@ const GetInTouchBlock = async ({
 
   return (
     <Bounded
-      className="mx-5 grid grid-rows-1 gap-16 rounded border border-black/10 bg-white p-8 py-16 shadow md:mx-auto md:grid-cols-2"
+      className="mx-5 grid grid-rows-1 gap-16 rounded border border-black/10 bg-white p-8 py-16 shadow md:mx-auto md:grid-cols-2 mb-12"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="flex h-full w-full flex-col justify-center border-r border-white border-opacity-10">
+      <div className="flex h-full w-full flex-col justify-center border-r border-white border-opacity-10 ">
         <div className="mb-6 flex flex-col gap-2">
           <h4 className="text-2xl font-semibold">Get In Touch</h4>
 

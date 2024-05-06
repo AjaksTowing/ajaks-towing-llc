@@ -1,9 +1,10 @@
+"use client";
 import Bounded from "@/components/layout/Bounded";
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicText, SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
-
+import { motion } from "framer-motion";
 /**
  * Props for `Highlight`.
  */
@@ -19,7 +20,20 @@ const Highlight = ({ slice }: HighlightProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <div className="grid grid-cols-1 grid-rows-2 place-items-center gap-6 md:grid-cols-2 md:grid-rows-1">
-        <div className="md:prose">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              type: "spring",
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          viewport={{ amount: 0.5 }}
+          className="md:prose"
+        >
           {isFilled.richText(slice.primary.heading) && (
             <h3 className="text-2xl font-medium md:text-4xl 2xl:text-5xl">
               <PrismicText field={slice.primary.heading} />
@@ -30,9 +44,20 @@ const Highlight = ({ slice }: HighlightProps): JSX.Element => {
               <PrismicText field={slice.primary.body} />
             </p>
           )}
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              type: "spring",
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          viewport={{ amount: 0.5 }}
           className={clsx(
             "-order-1",
             slice.variation === "reverse" ? "" : "md:order-1",
@@ -53,7 +78,7 @@ const Highlight = ({ slice }: HighlightProps): JSX.Element => {
               field={slice.primary.mobile_image}
             />
           )}
-        </div>
+        </motion.div>
       </div>
     </Bounded>
   );

@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { Content, asText } from "@prismicio/client";
 import { PrismicImage, SliceComponentProps } from "@prismicio/react";
 import Image from "next/image";
-
+import { motion } from "framer-motion";
 /**
  * Props for `WhoWeAre`.
  */
@@ -21,7 +21,17 @@ const WhoWeAre = ({ slice }: WhoWeAreProps): JSX.Element => {
       <section>
         <div className="rc-container flex flex-col gap-10 duration-300 md:flex-row">
           {/* CTA------------------------------------------------------------starts here */}
-          <div className="flex flex-col gap-5 md:w-1/2">
+          <motion.div    initial={{ opacity: 0, x: -100 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              type: "spring",
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          viewport={{ amount: 0.5 }} className="flex flex-col gap-5 md:w-1/2">
             <h6 className="text-[#DD841F] font-bold">WHO WE ARE</h6>
             <h2 className="text-5xl font-bold">
               {asText(slice.primary.heading)}
@@ -54,11 +64,21 @@ const WhoWeAre = ({ slice }: WhoWeAreProps): JSX.Element => {
                 </h3>
               </div>
             </div>
-          </div>
+          </motion.div>
           {/* CTA------------------------------------------------------------ends here */}
 
           {/* Image------------------------------------------------------------starts here */}
-          <div className="relative ml-4 mt-4 w-full duration-300 md:w-1/2">
+          <motion.div  initial={{ opacity: 0, x: 100 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              type: "spring",
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          viewport={{ amount: 0.5 }} className="relative ml-4 mt-4 w-full duration-300 md:w-1/2">
             <div className="absolute -left-5 -top-5 bg-white p-1">
               <div className="bg-[#111827] w-fit p-5 text-center">
                 <h2 className="text-primary text-3xl font-bold">
@@ -68,7 +88,7 @@ const WhoWeAre = ({ slice }: WhoWeAreProps): JSX.Element => {
               </div>
             </div>
             <PrismicImage field={slice.primary.featured_image} />
-          </div>
+          </motion.div>
           {/* Image------------------------------------------------------------ends here */}
         </div>
       </section>

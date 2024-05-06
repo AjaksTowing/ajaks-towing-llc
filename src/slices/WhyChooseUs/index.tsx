@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import { Content, asLink, asText } from "@prismicio/client";
 import { PrismicImage, SliceComponentProps } from "@prismicio/react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
 // #DD841F, #0C0C0D, #FFFFFF, #111827
 /**
  * Props for `WhyChooseUs`.
@@ -51,7 +53,18 @@ const WhyChooseUs = ({ slice }: WhyChooseUsProps): JSX.Element => {
             {/* Cards------------------------------------------------------------starts here */}
             <div className="grid grid-cols-2 gap-8">
               {slice.items.map((card, idx) => (
-                <div
+                <motion.div   initial={{ opacity: 0, y: 10 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    type: "spring",
+                    bounce: 0.4,
+                    duration: 1,
+                    delay: idx * 0.2,
+                  },
+                }}
+                viewport={{ once: false, amount: 0.2 }}
                   key={idx}
                   className="group flex w-full flex-col items-center gap-2 bg-[#111827] px-4 py-10 duration-300 hover:bg-[#DD841F] xl:max-w-xs"
                 >
@@ -67,7 +80,7 @@ const WhyChooseUs = ({ slice }: WhyChooseUsProps): JSX.Element => {
                   <p className="text-center text-white">
                     {asText(card.tagline)}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
             {/* Cards------------------------------------------------------------ends here */}

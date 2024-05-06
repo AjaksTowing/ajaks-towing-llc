@@ -1,3 +1,4 @@
+
 import Bounded from "@/components/layout/Bounded";
 import { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
@@ -14,13 +15,13 @@ export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
 const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
   return (
     <Bounded
-      className="md:-my-8 md:mt-24"
+      className="md:mb-5 md:mt-24"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
       <div className="flex items-center justify-between rounded bg-gray-900 p-10 py-20">
         <div className="flex flex-col gap-4">
-          <p className="text-gray-300">{slice.primary.tagline}</p>
+         {/* <p className="text-gray-300">{slice.primary.tagline}</p>*/}
           <h4 className="text-4xl text-white">{slice.primary.heading}</h4>
         </div>
         <PrismicNextLink field={slice.primary.button_trigger}>
