@@ -1,4 +1,4 @@
-import GetInTouchForm from "@/components/GetInTouchForm";
+import GetInTouchForm from "@/components/GetInTouchForm";//ok
 import Bounded from "@/components/layout/Bounded";
 import { createClient } from "@/prismicio";
 import { Content, isFilled } from "@prismicio/client";

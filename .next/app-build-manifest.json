@@ -21,18 +21,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
-    ],
-    "/[uid]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/css-node_modules_leaflet_dist_leaflet_css-node_modules_swiper_modules_navigation_css-node_mod-630bf1.css",
-      "static/chunks/app/[uid]/page.js"
-    ],
-    "/blog/[uid]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/css-node_modules_leaflet_dist_leaflet_css-node_modules_swiper_modules_navigation_css-node_mod-630bf1.css",
-      "static/chunks/app/blog/[uid]/page.js"
     ]
   }
 }
