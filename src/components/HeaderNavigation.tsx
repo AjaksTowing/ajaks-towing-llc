@@ -37,6 +37,7 @@ export default function HeaderNavigation({
   pages,
   settings,
 }: HeaderNavigationProps) {
+  console.log(settings);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const uid = usePathname();
@@ -76,6 +77,10 @@ export default function HeaderNavigation({
 
   return (
     <>
+      <div className="sticky top-0 z-50 bg-white text-center text-[#DD841F] p-2">
+        Call Now{" "}
+        <a href={`tel:${settings?.data?.phone}`}>{settings?.data?.phone}</a>
+      </div>
       <header
         className={cn(
           "z-10 w-full text-sm capitalize",
@@ -84,7 +89,7 @@ export default function HeaderNavigation({
       >
         <Bounded
           className={cn(
-            "mt-1 flex w-full place-items-center items-center justify-between py-5 md:mt-1",
+            "mt-0 flex w-full place-items-center items-center justify-between py-5 md:mt-0",
             isHome(uid) && "border-b border-white border-opacity-25",
           )}
         >

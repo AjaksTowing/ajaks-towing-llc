@@ -16,7 +16,7 @@ const Body = ({ slice }: BodyProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="prose max-w-full md:prose-xl 2xl:prose-2xl prose-li:marker:text-[#DD841C]">
+      <div className="prose max-w-full md:prose-xl 2xl:prose-2xl prose-li:marker:text-[#DD841C] pb-12 ">
         <PrismicRichText field={slice.primary.body} />
       </div>
     </Bounded>
