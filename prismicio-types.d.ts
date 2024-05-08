@@ -267,6 +267,17 @@ interface PageDocumentData {
   dropdown_items: prismic.GroupField<
     Simplify<PageDocumentDataDropdownItemsItem>
   >;
+
+  /**
+   * Index field in *Page*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.index
+   * - **Tab**: Menu Settings
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  index: prismic.NumberField;
 }
 
 /**
@@ -583,6 +594,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   store_hours: prismic.KeyTextField;
+
+  /**
+   * Calendly link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.calendly_link
+   * - **Tab**: Contact
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  calendly_link: prismic.LinkField;
 }
 
 /**

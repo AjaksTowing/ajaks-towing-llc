@@ -163,6 +163,13 @@
             }
           }
         }
+      },
+      "index": {
+        "type": "Number",
+        "config": {
+          "label": "Index",
+          "placeholder": ""
+        }
       }
     }
   }

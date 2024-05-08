@@ -23,6 +23,7 @@ const ContentGrid = ({ slice }: ContentGridProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="pb-14"
     >
       <div className="relative">
         <h3 className="mx-auto w-max bg-gray-100 px-4 text-2xl uppercase">
