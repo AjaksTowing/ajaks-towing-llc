@@ -160,6 +160,14 @@
           "label": "Store Hours",
           "placeholder": ""
         }
+      },
+      "calendly_link": {
+        "type": "Link",
+        "config": {
+          "label": "Calendly link",
+          "placeholder": "",
+          "select": null
+        }
       }
     }
   }

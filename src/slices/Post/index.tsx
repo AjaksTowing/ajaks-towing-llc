@@ -19,7 +19,7 @@ export type BodyProps = SliceComponentProps<Content.BodySlice>;
 const Body = ({ slice }: BodyProps): JSX.Element => {
   return (
     <Bounded
-      className="grid w-full md:grid-cols-[1fr_35ch]"
+      className="grid w-full md:grid-cols-[1fr_35ch] pb-14"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
