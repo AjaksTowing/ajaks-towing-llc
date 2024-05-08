@@ -77,11 +77,16 @@ export default function HeaderNavigation({
 
   return (
     <>
-      <div className="sticky top-0 z-50 bg-white p-2 text-center text-[#DD841F] flex flex-row items-baseline space-x-4 w-screen place-content-around ">
+      <div className="sticky top-0 z-50 flex w-screen flex-row place-content-around items-baseline space-x-4 bg-white p-2 text-center text-[#DD841F] ">
         <div>
-        Call Now{" "}
-        <a href={`tel:${settings?.data?.phone}`}>{settings?.data?.phone}</a></div>
-        <a href={`${settings?.data?.calendly_link}`} className="align-end" target="blank" >
+          Call Now{" "}
+          <a href={`tel:${settings?.data?.phone}`}>{settings?.data?.phone}</a>
+        </div>
+        <a
+          href={`${settings?.data?.calendly_link}`}
+          className="align-end"
+          target="blank"
+        >
           <button className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 ">
             Book Appointment
           </button>
@@ -204,9 +209,13 @@ const Menu = ({
       <nav>
         <ul className="mb-2 flex flex-col items-center gap-2 md:flex-row md:gap-8">
           {pages
-            .sort(
-              (a: PageDocument, b: PageDocument) => a.data.index - b.data.index,
-            )
+            .sort((a: PageDocument, b: PageDocument) => {
+              if (a?.data?.index && b?.data?.index) {
+                return a.data.index - b.data.index;
+              } else {
+                return 0;
+              }
+            })
             .map((page: PageDocument) => (
               <Link
                 href={
