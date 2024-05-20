@@ -22,6 +22,7 @@ const Testimonials = ({ slice }: TestimonialsProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="overflow-hidden"
     >
       <div className="flex justify-center">
         <h3 className="mb-20 text-2xl font-medium">What Our Clients Say?</h3>

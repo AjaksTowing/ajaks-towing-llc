@@ -14,7 +14,7 @@ export default function Bounded({
 }: BoundedProps) {
   return (
     <Comp
-      className={cn("mx-auto mt-16 max-w-[106rem] px-4 md:mt-36", className)}
+      className={cn("mx-auto mt-16 max-w-[106rem] px-4 md:mt-36 ", className)}
       {...restProps}
     >
       {children}

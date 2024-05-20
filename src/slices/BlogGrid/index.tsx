@@ -17,7 +17,7 @@ const BlogGrid = async ({ slice }: BlogGridProps): Promise<JSX.Element> => {
   return (
     <Bounded
       data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
+      data-slice-variation={slice.variation}     
     >
       <ClientSideBlogPosts initialCount={+(posts_count ?? 6)} />
     </Bounded>

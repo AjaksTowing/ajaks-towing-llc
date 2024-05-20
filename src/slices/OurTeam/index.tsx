@@ -17,6 +17,7 @@ const OurTeam = ({ slice }: OurTeamProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="overflow-hidden"
     >
       <section>
         <div className="rc-container flex flex-col gap-10 duration-300 md:flex-row">

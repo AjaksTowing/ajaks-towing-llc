@@ -15,9 +15,10 @@ export type BannerProps = SliceComponentProps<Content.BannerSlice>;
 const Banner = ({ slice }: BannerProps): JSX.Element => {
   return (
     <section
-      className={clsx("relative", slice.variation === "textBottom" && "mb-36")}
+      className={clsx("relative ", slice.variation === "textBottom" && "mb-36")}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      
     >
       {isFilled.image(slice.primary.background_image) && (
         <div className="relative">

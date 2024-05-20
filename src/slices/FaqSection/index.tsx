@@ -15,6 +15,7 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+    
     >
       {/* @ts-ignore */}
       <FaqSectionFC slice={slice} />

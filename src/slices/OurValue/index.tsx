@@ -21,7 +21,7 @@ const OurValue = ({ slice }: OurValueProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mb-12"
+      className="mb-12 overflow-hidden"
     >
       <section>
         {/* Title------------------------------------------------------------starts here */}

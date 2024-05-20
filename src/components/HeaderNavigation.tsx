@@ -37,7 +37,7 @@ export default function HeaderNavigation({
   pages,
   settings,
 }: HeaderNavigationProps) {
-  console.log(settings);
+
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const uid = usePathname();

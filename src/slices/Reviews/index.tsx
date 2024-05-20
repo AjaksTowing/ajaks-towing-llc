@@ -19,7 +19,7 @@ export type ReviewsProps = SliceComponentProps<Content.ReviewsSlice>;
 const Reviews = ({ slice }: ReviewsProps): JSX.Element => {
   return (
     <section
-      className="bg-white"
+      className="bg-white overflow-hidden"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
