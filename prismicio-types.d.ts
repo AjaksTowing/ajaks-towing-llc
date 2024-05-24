@@ -118,7 +118,85 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >;
 
+type LocationDocumentDataSlicesSlice = BodySlice;
+
+/**
+ * Content for Location documents
+ */
+interface LocationDocumentData {
+  /**
+   * Title field in *Location*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Location*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LocationDocumentDataSlicesSlice> /**
+   * Meta Description field in *Location*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: location.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Location*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Location*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: location.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Location document from Prismic
+ *
+ * - **API ID**: `location`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LocationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<LocationDocumentData>,
+    "location",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
+  | LocationsSlice
+  | FaqSectionSlice
   | WhyChooseUsSlice
   | WhoWeAreSlice
   | OurValueSlice
@@ -150,7 +228,9 @@ export interface PageDocumentDataDropdownItemsItem {
    * - **API ID Path**: page.dropdown_items[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.ContentRelationshipField<"page" | "blog_post" | "service_page">;
+  link: prismic.ContentRelationshipField<
+    "page" | "blog_post" | "service_page" | "location"
+  >;
 }
 
 /**
@@ -625,6 +705,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | BlogPostDocument
+  | LocationDocument
   | PageDocument
   | ServicePageDocument
   | SettingsDocument;
@@ -1355,6 +1436,61 @@ type HighlightSliceVariation = HighlightSliceDefault | HighlightSliceReverse;
 export type HighlightSlice = prismic.SharedSlice<
   "highlight",
   HighlightSliceVariation
+>;
+
+/**
+ * Primary content in *Locations → Primary*
+ */
+export interface LocationsSliceDefaultPrimary {
+  /**
+   * Title field in *Locations → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Background Image field in *Locations → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Locations Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LocationsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LocationsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Locations*
+ */
+type LocationsSliceVariation = LocationsSliceDefault;
+
+/**
+ * Locations Shared Slice
+ *
+ * - **API ID**: `locations`
+ * - **Description**: Locations
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LocationsSlice = prismic.SharedSlice<
+  "locations",
+  LocationsSliceVariation
 >;
 
 /**
@@ -2169,6 +2305,9 @@ declare module "@prismicio/client" {
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
+      LocationDocument,
+      LocationDocumentData,
+      LocationDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -2229,6 +2368,10 @@ declare module "@prismicio/client" {
       HighlightSliceVariation,
       HighlightSliceDefault,
       HighlightSliceReverse,
+      LocationsSlice,
+      LocationsSliceDefaultPrimary,
+      LocationsSliceVariation,
+      LocationsSliceDefault,
       MapSlice,
       MapSliceDefaultPrimary,
       MapSliceVariation,

@@ -13,6 +13,7 @@ export const components = {
   get_in_touch_block: dynamic(() => import("./GetInTouchBlock")),
   hero: dynamic(() => import("./Hero")),
   highlight: dynamic(() => import("./Highlight")),
+  locations: dynamic(() => import("./Locations")),
   map: dynamic(() => import("./Map")),
   our_team: dynamic(() => import("./OurTeam")),
   our_value: dynamic(() => import("./OurValue")),

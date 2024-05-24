@@ -27,6 +27,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "locations": {
+              "type": "SharedSlice"
+            },
+            "faq_section": {
+              "type": "SharedSlice"
+            },
             "why_choose_us": {
               "type": "SharedSlice"
             },
@@ -158,7 +164,7 @@
               "config": {
                 "label": "link",
                 "select": "document",
-                "customtypes": ["page", "blog_post", "service_page"]
+                "customtypes": ["page", "blog_post", "service_page", "location"]
               }
             }
           }
