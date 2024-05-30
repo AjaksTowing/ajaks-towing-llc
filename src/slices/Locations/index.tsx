@@ -20,7 +20,10 @@ export type LocationsProps = SliceComponentProps<Content.LocationsSlice>;
 const Locations = async ({ slice }: LocationsProps) => {
   console.log(slice?.primary?.background_image?.url?.split("?")[0]);
   const client = createClient();
-  const locations: LocationDocument[] = await client.getAllByType("location");
+  const locations: LocationDocument[][] = chunkIntoN(
+    await client.getAllByType("location"),
+    4,
+  );
 
   return (
     <section
@@ -29,22 +32,21 @@ const Locations = async ({ slice }: LocationsProps) => {
       className="pt-20"
     >
       <div
-        className="text-white flex flex-col justify-items-center w-full bg-white p-10"
+        className="flex w-full flex-col justify-items-center bg-white px-1 py-10 md:p-10 text-white"
         style={{
-          backgroundImage:`url(${slice?.primary?.background_image?.url?.split("?")[0]})`,
+          backgroundImage: `url(${slice?.primary?.background_image?.url?.split("?")[0]})`,
           backgroundSize: "cover",
           backgroundPosition: "center center",
           //height: "300px",
         }}
       >
-      
-          <h2 className="pb-5 text-4xl font-bold text-center">
-            {asText(slice?.primary?.title)}
-          </h2>
-          <ul className="m-auto flex list-inside list-disc flex-row gap-5 md:gap-20 text-xl font-bold ">
-            <div>
-              {locations
-                .slice(0, Math.ceil(locations.length / 2))
+        <h2 className="pb-5 text-center text-4xl font-bold">
+          {asText(slice?.primary?.title)}
+        </h2>
+        <ul className="m-auto grid grid-cols-2 md:grid-cols-4  list-inside list-disc gap-x-4 text-xl font-bold md:gap-x-2 lg:gap-x-10 ">
+          {locations.map((groupLocations, idx) => (
+            <div key={idx}>
+              {groupLocations
                 .map((location) => {
                   return (
                     <li key={location.id} className="pb-2">
@@ -58,27 +60,21 @@ const Locations = async ({ slice }: LocationsProps) => {
                   );
                 })}
             </div>
-            <div>
-              {locations
-                .slice(Math.ceil(locations.length / 2), locations.length)
-                .map((location) => {
-                  return (
-                    <li key={location.id} className="pb-2">
-                      <Link
-                        href={`/locations/${location.uid}`}
-                        className="border-white hover:border-b"
-                      >
-                        {asText(location.data.title)}
-                      </Link>
-                    </li>
-                  );
-                })}
-            </div>
-          </ul>
-   
+          ))}
+        </ul>
       </div>
     </section>
   );
 };
 
 export default Locations;
+
+const chunkIntoN = (
+  arr: LocationDocument[],
+  n: number,
+): LocationDocument[][] => {
+  const size = Math.ceil(arr.length / n);
+  return Array.from({ length: n }, (v, i) =>
+    arr.slice(i * size, i * size + size),
+  );
+};

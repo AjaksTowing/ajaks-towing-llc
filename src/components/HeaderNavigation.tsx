@@ -37,7 +37,6 @@ export default function HeaderNavigation({
   pages,
   settings,
 }: HeaderNavigationProps) {
-
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const uid = usePathname();
@@ -200,7 +199,7 @@ const Menu = ({
   closeModal,
 }: HeaderNavigationProps & { closeModal: () => void }) => {
   const uid = usePathname();
-
+  console.log(pages);
   return (
     <>
       <nav>
@@ -263,7 +262,8 @@ const Menu = ({
                           className={cn(
                             "capitalize md:grid",
                             `md:grid-cols-${
-                              page.data.dropdown_items.length > 3
+                              page.data.dropdown_items.length > 3 &&
+                              page.uid !== "locations"
                                 ? 3
                                 : page.data.dropdown_items.length
                             }`,
