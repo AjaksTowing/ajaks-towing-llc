@@ -10,8 +10,14 @@ import dynamic from "next/dynamic";
  */
 export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
 
+const fetchReviews = async (accountId: string, locationId: string) => {
+  const res = await fetch(`GET
+  https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`);
+  console.log(res);
+};
+
 const ScrollTo = dynamic(() => import("@/components/ScrollTo"), {
-  ssr: false
+  ssr: false,
 });
 
 /**

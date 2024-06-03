@@ -79,7 +79,18 @@ interface BlogPostDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  meta_title: prismic.KeyTextField /**
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Json Ld field in *Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.json_ld
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  json_ld: prismic.RichTextField /**
    * Banner field in *Post*
    *
    * - **Field Type**: Select
@@ -176,6 +187,17 @@ interface LocationDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Json Ld field in *Location*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.json_ld
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  json_ld: prismic.RichTextField;
 }
 
 /**
@@ -288,7 +310,18 @@ interface PageDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  meta_image: prismic.ImageField<never> /**
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * JSON-LD  field in *Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.json_ld
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  json_ld: prismic.RichTextField /**
    * Add To Menu field in *Page*
    *
    * - **Field Type**: Boolean
@@ -448,6 +481,17 @@ interface ServicePageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Json Ld field in *Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_page.json_ld
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  json_ld: prismic.RichTextField;
 }
 
 /**

@@ -43,7 +43,18 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("location", params.uid)
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <>
+     
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: prismic.asText(page?.data?.json_ld) ?? {},
+        }}
+      />
+      <SliceZone slices={page.data.slices} components={components} />;
+    </>
+  );
 }
 
 export async function generateStaticParams() {

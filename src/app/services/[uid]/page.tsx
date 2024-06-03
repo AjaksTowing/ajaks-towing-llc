@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import * as prismic from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
@@ -42,7 +43,17 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("service_page", params.uid)
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: prismic.asText(page?.data?.json_ld) ?? {},
+        }}
+      />
+      <SliceZone slices={page.data.slices} components={components} />
+    </>
+  );
 }
 
 export async function generateStaticParams() {

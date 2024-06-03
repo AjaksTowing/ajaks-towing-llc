@@ -116,6 +116,15 @@
           },
           "thumbnails": []
         }
+      },
+      "json_ld": {
+        "type": "StructuredText",
+        "config": {
+          "label": "JSON-LD ",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "multi": "preformatted"
+        }
       }
     },
     "Menu Settings": {
